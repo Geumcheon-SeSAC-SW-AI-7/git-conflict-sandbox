@@ -3,7 +3,7 @@ import sys
 # 입력 속도를 높이기 위한 설정
 r = sys.stdin.readline
 
-
+#나는 바보
 def num_islands(grid):
     if not grid:
         return 0
