@@ -1,22 +1,26 @@
-rows, cols = len(grid), len(grid[0])
-count = 0
-visited = set()
+def num_islands(grid):
+    if not grid:
+        return 0
 
-for r in range(rows):
-    for c in range(cols):
-        if grid[r][c] == '1' and (r, c) not in visited:
-            count += 1
-            stack = [(r, c)]
-            visited.add((r, c))
+    rows, cols = len(grid), len(grid[0])
+    visited = set()
+    count = 0
 
-            while stack:
-                curr_r, curr_c = stack.pop()
+    def dfs(r, c):
+        stack = [(r, c)]
+        while stack:
+            cr, cc = stack.pop()
+            for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                nr, nc = cr + dr, cc + dc
+                if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == '1' and (nr, nc) not in visited:
+                    visited.add((nr, nc))
+                    stack.append((nr, nc))
 
-                directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-                for dr, dc in directions:
-                    nr, nc = curr_r + dr, curr_c + dc
-                    if 0 <= nr < rows and 0 <= nc < cols:
-                        if grid[nr][nc] == '1' and (nr, nc) not in visited:
-                            visited.add((nr, nc))
-                            stack.apped((nr, nc))
-return count
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == '1' and (r, c) not in visited:
+                visited.add((r, c))
+                dfs(r, c)
+                count += 1
+
+    return count
