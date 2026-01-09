@@ -1,5 +1,5 @@
 import sys
-
+print("나는 민기다")
 # 입력 속도를 높이기 위한 설정
 r = sys.stdin.readline
 
