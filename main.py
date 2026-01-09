@@ -1,6 +1,7 @@
 rows, cols = len(grid), len(grid[0])
 count = 0
 visited = set()
+
 def num_islands(grid):
     if not grid:
         return 0
@@ -25,5 +26,11 @@ def num_islands(grid):
                 visited.add((r, c))
                 dfs(r, c)
                 count += 1
+<<<<<<< HEAD
 
     return count
+=======
+    print("나는 바보다")
+
+    return count
+>>>>>>> 22bd9993da3d2c230f825ba0375b1d107ea85417
