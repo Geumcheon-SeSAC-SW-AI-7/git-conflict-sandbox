@@ -1,10 +1,6 @@
 rows, cols = len(grid), len(grid[0])
 count = 0
 visited = set()
-
-rows, cols = len(grid), len(grid[0])
-count = 0
-visited = set()
 def num_islands(grid):
     if not grid:
         return 0
