@@ -22,5 +22,6 @@ def num_islands(grid):
                 visited.add((r, c))
                 dfs(r, c)
                 count += 1
+    print("나는 바보다")
 
     return count
